@@ -1,6 +1,6 @@
 ﻿using TaskManagementApi.Models.DTOs;
 
-namespace TaskManagementApi.Services
+namespace TaskManagementApi.Interfaces
 {
     public interface IAuthService
     {

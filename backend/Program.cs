@@ -1,15 +1,11 @@
-using System;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using TaskManagementApi.Data;
 using TaskManagementApi.Data.Repositories;
 using TaskManagementApi.Helpers;
+using TaskManagementApi.Interfaces;
 using TaskManagementApi.Services;
 
 namespace TaskManagementApi

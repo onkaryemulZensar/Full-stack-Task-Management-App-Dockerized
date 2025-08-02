@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using TaskManagementApi.Models;
+﻿using TaskManagementApi.Models;
 
-namespace TaskManagementApi.Data.Repositories
+namespace TaskManagementApi.Interfaces
 {
     public interface ITaskRepository
     {

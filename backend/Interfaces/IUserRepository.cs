@@ -1,9 +1,6 @@
-﻿using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using TaskManagementApi.Data;
-using TaskManagementApi.Models;
+﻿using TaskManagementApi.Models;
 
-namespace TaskManagementApi.Data.Repositories
+namespace TaskManagementApi.Interfaces
 {
     public interface IUserRepository
     {

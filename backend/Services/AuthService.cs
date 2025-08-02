@@ -1,5 +1,5 @@
-﻿using TaskManagementApi.Data.Repositories;
-using TaskManagementApi.Helpers;
+﻿using TaskManagementApi.Helpers;
+using TaskManagementApi.Interfaces;
 using TaskManagementApi.Models;
 using TaskManagementApi.Models.DTOs;
 
