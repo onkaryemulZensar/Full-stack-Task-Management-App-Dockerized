@@ -1,0 +1,59 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: taskmanagement-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Onkar@2003
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: [ "CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Onkar@2003 -Q 'SELECT 1' -C Encrypt=yes;TrustServerCertificate=no" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - taskmanagement-network
+
+  backend:
+    build:
+      context: ./backend
+    container_name: taskmanagement-backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - AllowedCorsOrigins=http://localhost:3000,http://frontend:3000
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=TaskManagementDb;User=sa;Password=Onkar@2003;TrustServerCertificate=True;MultipleActiveResultSets=true
+    ports:
+      - "5000:5000"
+    # Wait for SQL Server to be ready, then run migrations and start the app
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    entrypoint: [ "dotnet", "TaskManagementApi.dll" ]
+    networks:
+      - taskmanagement-network
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: taskmanagement-frontend
+    environment:
+      - REACT_APP_API_URL=http://backend:5000/api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - taskmanagement-network
+
+volumes:
+  mssql_data:
+
+
+networks:
+  taskmanagement-network:
+    driver: bridge

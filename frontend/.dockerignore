@@ -1,0 +1,20 @@
+# Ignore dependencies
+node_modules
+
+# Ignore environment variables and build output
+.env
+build
+
+# Ignore Git and editor/system files
+.git
+.gitignore
+
+.vscode
+.idea
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+Dockerfile
+docker-compose.yml

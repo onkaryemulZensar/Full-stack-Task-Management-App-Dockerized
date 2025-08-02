@@ -1,0 +1,19 @@
+# Ignore build outputs and user secrets
+bin
+obj
+.vs
+*.user
+*.suo
+
+# Ignore Git and environment
+.git
+.gitignore
+
+.env
+
+.vscode
+.idea
+*.log
+
+Dockerfile
+docker-compose.yml
