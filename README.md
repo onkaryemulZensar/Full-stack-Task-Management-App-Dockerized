@@ -39,32 +39,32 @@ A robust full stack task management application featuring a **React frontend**, 
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository:
+1. Clone the Repository:
 
     ```bash
         git clone https://github.com/onkaryemulZensar/Full-stack-Task-Management-App-Dockerized.git
     ```
 
-### 2. Move to the project directory:
+2. Move to the project directory:
 
     ```bash
         cd Full-stack-Task-Management-App-Dockerized
     ```
 
-### 3. Configure Environment (Optional):
+3. Configure Environment (Optional):
 
     - The backend and database connection strings are pre-configured for Docker Compose.
     - The frontend fetches the backend API URL from the `REACT_APP_API_URL` environment variable.
     - CORS origins can be set via the `AllowedCorsOrigins` environment variable in `docker-compose.yml`.
 
 
-### 4. Run the Application
+4. Run the Application:
 
     ```bash
        docker compose up --build -d
     ```
  
-### 5. Access the App:
+5. Access the App:
 
 | Service       | URL Endpoint                
 |---------------|-------------------------
@@ -72,7 +72,7 @@ A robust full stack task management application featuring a **React frontend**, 
 | Swagger UI    | `http://localhost:5000/swagger/index.html`   
 
 
-### 6. Stop the Application
+6. Stop the Application:
 
     ```bash
        docker compose down
